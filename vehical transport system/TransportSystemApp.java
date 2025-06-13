@@ -66,6 +66,7 @@ public class TransportSystemApp {
                     System.out.println("4. Exit");
                     System.out.print("Enter your choice: ");
                     choice = sc.nextInt();
+                    3
                     sc.nextLine();
                     switch (choice) {
                         case 1 -> System.out.println("→ Add Travel Entry functionality");
