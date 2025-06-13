@@ -178,9 +178,9 @@ public class TransportSystemApp {
                             choice = sc.nextInt();
                             sc.nextLine();
                             switch (choice) {
-                                case 1 -> System.out.println("→ Travel Entry functionality");
-                                case 2 -> System.out.println("→ Fuel Entry functionality");
-                                case 3 -> System.out.println("→ Report Accident functionality");
+                                case 1 -> System.out.println("Travel Entry functionality");
+                                case 2 -> System.out.println("Fuel Entry functionality");
+                                case 3 -> System.out.println("Report Accident functionality");
                                 case 4 -> System.out.println("Exiting Driver panel...");
                                 default -> System.out.println("Invalid choice. Try again.");
                             }
