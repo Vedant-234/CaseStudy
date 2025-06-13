@@ -13,12 +13,25 @@ class Driver extends User {
     public String getDriverId() {
         return driverId;
     }
+    
+    ////////////////
+    public String getName() {
+        return name;
+    }
+//////////////////////////
 
     @Override
     public void displayInfo() {
         System.out.println("Driver Name: " + name);
         System.out.println("Contact: " + contactInfo);
-        System.out.println("Driver ID: " + driverId);
-        System.out.println("License No: " + licenseNumber);
+       // System.out.println("Driver ID: " + driverId);
     }
+    
+	@Override
+	public String toString() {
+		return "Driver : driverID = " + driverId + 
+				", Driver Name = " +  name + 
+				", contactInfo = " + contactInfo + 
+				", licenseNumber = " + licenseNumber + "";
+	}
 }
