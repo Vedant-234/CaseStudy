@@ -178,9 +178,29 @@ public class TransportSystemApp {
                             choice = sc.nextInt();
                             sc.nextLine();
                             switch (choice) {
-                                case 1 -> System.out.println("Travel Entry functionality");
-                                case 2 -> System.out.println("Fuel Entry functionality");
-                                case 3 -> System.out.println("Report Accident functionality");
+                            case 1 -> {
+                                System.out.print("Enter Travel Entry ID: ");
+                                String travelId = sc.nextLine();
+                                
+                                System.out.print("Enter Date (dd-mm-yyyy): ");
+                                String travelDate = sc.nextLine();
+                                
+                                System.out.print("Enter Kilometers Travelled: ");
+                                double kms = sc.nextDouble(); sc.nextLine();
+
+                                TravelEntry t = new TravelEntry(travelId, travelDate, kms);
+                                travelEntries.add(t);
+                                
+                                System.out.println("Travel Entry Added Successfully!");
+                                t.displayTravelEntry();
+                            }
+
+                            case 2 -> {
+                                System.out.println("Fuel Entry Functionality");
+                            }
+
+
+                                case 3 -> System.out.println("→ Report Accident functionality");
                                 case 4 -> System.out.println("Exiting Driver panel...");
                                 default -> System.out.println("Invalid choice. Try again.");
                             }
@@ -188,39 +208,9 @@ public class TransportSystemApp {
                         break;
                     }
                 }
-<<<<<<< HEAD
 
                 if (!found) {
                     System.out.println("Driver not found. Please register with Admin first.");
-=======
-            } else {
-                System.out.println(" Invalid Admin Credentials!");
-            }
-        } else if (userType == 2) {
-            System.out.print("Enter Driver ID: ");
-            String driverId = sc.nextLine();
-            if (driver.getDriverId().equals(driverId)) {
-                System.out.println("\n Driver Login Successful!");
-                driver.displayInfo();
-                int choice = -1;
-                while (choice != 4) {
-                    System.out.println("\n========= Driver Menu =========");
-                    System.out.println("1. Add Travel Entry");
-                    System.out.println("2. Add Fuel Entry");
-                    System.out.println("3. Report Accident");
-                    System.out.println("4. Exit");
-                    System.out.print("Enter your choice: ");
-                    choice = sc.nextInt();
-                    3
-                    sc.nextLine();
-                    switch (choice) {
-                        case 1 -> System.out.println("→ Add Travel Entry functionality");
-                        case 2 -> System.out.println("→ Add Fuel Entry functionality");
-                        case 3 -> System.out.println("→ Report Accident functionality");
-                        case 4 -> System.out.println("Exiting Driver panel...");
-                        default -> System.out.println(" Invalid choice. Try again.");
-                    }
->>>>>>> 2c2f9b3f31f92119922dc0046c52f1b80cd479ba
                 }
             
             } else if (userType == 3) {
