@@ -2,6 +2,7 @@
 package com.vts;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TransportSystemApp {
@@ -18,7 +19,8 @@ public class TransportSystemApp {
         ArrayList<Maintenance> maintenanceRecords = new ArrayList<>();
         ArrayList<Schedule> schedules = new ArrayList<>();
         ArrayList<FuelEntry> fuelEntries = new ArrayList<>();
-
+        ArrayList<Accident> accidentRecords = new ArrayList<>();
+        //List<Accident> accidents = new ArrayList<>();
 
         boolean exitSystem = false;
 
@@ -117,27 +119,41 @@ public class TransportSystemApp {
 
 
                             case 4 -> {
-                                System.out.print("Enter Vehicle ID: ");
-                                String vmId = sc.nextLine();
-                                System.out.print("Enter Maintenance Type (PUC/Insurance): ");
-                                String mtype = sc.nextLine();
-                                System.out.print("Enter Due Date: ");
-                                String due = sc.nextLine();
+                            	System.out.print("Enter Vehicle ID: ");
+                            	String vehicleId = sc.next();
 
-                                Maintenance m = new Maintenance(vmId, mtype, due);
-                                maintenanceRecords.add(m);
-                                System.out.println("Maintenance record added!");
+                            	System.out.print("Enter Maintenance Type (PUC/Insurance): ");
+                            	String type = sc.next();
+
+                            	System.out.print("Enter Due Date (YYYY-MM-DD): ");
+                            	String date = sc.next();
+
+                            	System.out.print("Enter Maintenance Cost: ");
+                            	double cost = sc.nextDouble();
+
+                            	Maintenance m = new Maintenance(vehicleId, type, date, cost);
+                            	maintenanceRecords.add(m);
+
+                            	System.out.println("Maintenance record added!");
+
                             }
+                            
 
                             case 5 -> {
-                                System.out.println("Expense Report - Total Distance Travelled:");
-                                double totalKm = 0;
-                                for (TravelEntry t : travelEntries) {
-                                    totalKm += t.getKilometers();
-                                }
-                                System.out.println("Total Kilometers: " + totalKm);
-                            }
+                            	 System.out.print("Enter month for report (YYYY-MM): ");
+                            	    String reportMonth = sc.next();
 
+                            	    System.out.print("Enter Report ID: ");
+                            	    String reportId = sc.next();
+
+                            	    ExpenseReport report = admin.generateMonthlyReport(
+                            	        reportId, reportMonth, fuelEntries, maintenanceRecords, accidentRecords
+                            	    );
+                            	    report.displayReport();
+                            	    break;
+                            }
+                          
+                            
                             case 6 -> {
                                 System.out.println("Due Dates Validation:");
                                 for (Maintenance m : maintenanceRecords) {
@@ -196,11 +212,34 @@ public class TransportSystemApp {
                             }
 
                             case 2 -> {
-                                System.out.println("Fuel Entry Functionality");
+                                System.out.print("Enter Fuel Entry ID: ");
+                                String fuelId = sc.nextLine();
+
+                                System.out.print("Enter Date (dd-mm-yyyy): ");
+                                String fuelDate = sc.nextLine();
+
+                                System.out.print("Enter Liters Filled: ");
+                                double liters = sc.nextDouble(); 
+                                sc.nextLine(); 
+
+                                System.out.print("Enter Fuel Cost: ");
+                                double fuelCost = sc.nextDouble(); 
+                                sc.nextLine(); 
+
+                                FuelEntry f = new FuelEntry(fuelId, fuelDate, liters, fuelCost);
+                                f.displayFuelEntry();
+                                fuelEntries.add(f);
+
+                                System.out.println("Fuel Entry Added Succesgsfully!");
+                                f.displayFuelEntry();
                             }
 
 
-                                case 3 -> System.out.println("→ Report Accident functionality");
+                            case 3 -> {
+                            	d.addAccidentEntry(sc, accidentRecords); 
+
+                            }
+
                                 case 4 -> System.out.println("Exiting Driver panel...");
                                 default -> System.out.println("Invalid choice. Try again.");
                             }
@@ -228,9 +267,9 @@ public class TransportSystemApp {
 		System.out.println("1. Register Vehicle");
 		System.out.println("2. Register Driver");
 		System.out.println("3. Plan Travel");
-		System.out.println("4. Add Maintenance Record");
+		System.out.println("4. Add Maintenance Record"); //puc repair insurance
 		System.out.println("5. Generate Monthly Expense Report");
-		System.out.println("6. Validate Due Dates");
+		System.out.println("6. Validate Due Dates");//check upcoming due // display all data 
 		System.out.println("7. Exit");
 		System.out.print("Enter your choice: ");
 		choice = sc.nextInt();
@@ -281,3 +320,6 @@ public class TransportSystemApp {
 		
 	}
 }
+
+
+
