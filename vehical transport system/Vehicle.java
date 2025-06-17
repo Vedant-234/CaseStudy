@@ -1,7 +1,7 @@
 package com.vts;
 
-public class Vehicle {
-	private String vehicleId;
+class Vehicle {
+    private String vehicleId;
     private String regNo;
     private String type;
     private int capacity;
@@ -21,10 +21,11 @@ public class Vehicle {
         this.pucExpiry = pucExpiry;
     }
     
-    
+    ///////////////
     public String getVehicleId() {
         return vehicleId;
     }
+/////////////////////////////
 
     public void displayVehicleInfo() {
         System.out.println("Vehicle ID: " + vehicleId);
@@ -37,7 +38,7 @@ public class Vehicle {
         System.out.println("PUC Expiry: " + pucExpiry);
     }
 
-    
+    ///////////////////////
 	@Override
 	public String toString() {
 		return "Vehicle : vehicleId = " + vehicleId + 
@@ -49,7 +50,7 @@ public class Vehicle {
 				", pucDate = "+ pucDate + 
 				", pucExpiry = " + pucExpiry + "";
 	}
-
+	 ///////////////////////
     
    
     
