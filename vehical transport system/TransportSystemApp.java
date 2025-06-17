@@ -47,6 +47,11 @@ public class TransportSystemApp {
                         choice = printAdminMenu(sc);
 
                         switch (choice) {
+                        
+                        	case 0 -> {
+                        		admin.displayDataMenu(vehicles, drivers, schedules, maintenanceRecords, travelEntries, fuelEntries, accidentRecords);
+                                break;
+                        	}
                             case 1 -> {
                                 vehicleRegister(sc, vehicles);
                             }
@@ -162,6 +167,7 @@ public class TransportSystemApp {
                             }
 
                             case 7 -> System.out.println("Exiting Admin panel...");
+                         
                             default -> System.out.println("Invalid choice. Try again.");
                         }
                     }
@@ -230,7 +236,7 @@ public class TransportSystemApp {
                                 f.displayFuelEntry();
                                 fuelEntries.add(f);
 
-                                System.out.println("Fuel Entry Added Succesgsfully!");
+                                System.out.println("Fuel Entry Added Successfully!");
                                 f.displayFuelEntry();
                             }
 
@@ -264,12 +270,13 @@ public class TransportSystemApp {
 	private static int printAdminMenu(Scanner sc) {
 		int choice;
 		System.out.println("\n========= Admin Menu =========");
+		System.out.println("0. Display all data");
 		System.out.println("1. Register Vehicle");
 		System.out.println("2. Register Driver");
 		System.out.println("3. Plan Travel");
-		System.out.println("4. Add Maintenance Record"); //puc repair insurance
+		System.out.println("4. Add Maintenance Record"); 
 		System.out.println("5. Generate Monthly Expense Report");
-		System.out.println("6. Validate Due Dates");//check upcoming due // display all data 
+		System.out.println("6. Validate Due Dates"); 
 		System.out.println("7. Exit");
 		System.out.print("Enter your choice: ");
 		choice = sc.nextInt();
