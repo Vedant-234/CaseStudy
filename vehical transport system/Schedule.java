@@ -28,8 +28,16 @@ public class Schedule {
     public String getDriverId() {
         return driverId;
     }
+    
+    
 
-    public void displaySchedule() {
+    @Override
+	public String toString() {
+		return "Schedule [scheduleId=" + scheduleId + ", date=" + date + ", from=" + from + ", to=" + to
+				+ ", vehicleId=" + vehicleId + ", driverId=" + driverId + "]";
+	}
+
+	public void displaySchedule() {
         System.out.println("Schedule ID: " + scheduleId);
         System.out.println("Date: " + date);
         System.out.println("From: " + from);
