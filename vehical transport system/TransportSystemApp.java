@@ -1,8 +1,12 @@
-
 package com.vts;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import your.package.Schedule;
+import your.package.Maintenance;
+import your.package.TravelEntry;
+import your.package.Driver;
 
 public class TransportSystemApp {
     public static void main(String[] args) { 
@@ -45,15 +49,15 @@ public class TransportSystemApp {
                         choice = printAdminMenu(sc);
 
                         switch (choice) {
-                            case 1 -> {
+                            case 1:{
                                 vehicleRegister(sc, vehicles);
                             }
 
-                            case 2 -> {
+                            case 2:{
                                 callDriverRegister(sc, drivers);                               
                             }
 
-                            case 3 -> {
+                            case 3: {
                                 System.out.print("Enter Schedule ID: ");
                                 String sid = sc.nextLine();
                                 System.out.print("Enter Date (dd-mm-yyyy): ");
@@ -116,7 +120,7 @@ public class TransportSystemApp {
                             }
 
 
-                            case 4 -> {
+                            case 4: {
                                 System.out.print("Enter Vehicle ID: ");
                                 String vmId = sc.nextLine();
                                 System.out.print("Enter Maintenance Type (PUC/Insurance): ");
@@ -129,7 +133,7 @@ public class TransportSystemApp {
                                 System.out.println("Maintenance record added!");
                             }
 
-                            case 5 -> {
+                            case 5: {
                                 System.out.println("Expense Report - Total Distance Travelled:");
                                 double totalKm = 0;
                                 for (TravelEntry t : travelEntries) {
@@ -138,15 +142,15 @@ public class TransportSystemApp {
                                 System.out.println("Total Kilometers: " + totalKm);
                             }
 
-                            case 6 -> {
+                            case 6: {
                                 System.out.println("Due Dates Validation:");
                                 for (Maintenance m : maintenanceRecords) {
                                     m.displayMaintenance();
                                 }
                             }
 
-                            case 7 -> System.out.println("Exiting Admin panel...");
-                            default -> System.out.println("Invalid choice. Try again.");
+                            case 7: System.out.println("Exiting Admin panel...");
+                            default: System.out.println("Invalid choice. Try again.");
                         }
                     }
                 } else {
@@ -178,7 +182,7 @@ public class TransportSystemApp {
                             choice = sc.nextInt();
                             sc.nextLine();
                             switch (choice) {
-                            case 1 -> {
+                            case 1: {
                                 System.out.print("Enter Travel Entry ID: ");
                                 String travelId = sc.nextLine();
                                 
@@ -195,14 +199,14 @@ public class TransportSystemApp {
                                 t.displayTravelEntry();
                             }
 
-                            case 2 -> {
+                            case 2: {
                                 System.out.println("Fuel Entry Functionality");
                             }
 
 
-                                case 3 -> System.out.println("→ Report Accident functionality");
-                                case 4 -> System.out.println("Exiting Driver panel...");
-                                default -> System.out.println("Invalid choice. Try again.");
+                                case 3: System.out.println("→ Report Accident functionality");
+                                case 4: System.out.println("Exiting Driver panel...");
+                                default: System.out.println("Invalid choice. Try again.");
                             }
                         }
                         break;
