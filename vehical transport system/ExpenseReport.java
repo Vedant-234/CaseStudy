@@ -1,4 +1,4 @@
-package com.vts;
+package com.vts.model;
 
 public class ExpenseReport {
     private String reportId;
@@ -7,7 +7,8 @@ public class ExpenseReport {
     private double totalMaintenanceCost;
     private double totalAccidentCost;
 
-    public ExpenseReport(String reportId, String month, double totalFuelCost, double totalMaintenanceCost, double totalAccidentCost) {
+    public ExpenseReport(String reportId, String month, double totalFuelCost, 
+                         double totalMaintenanceCost, double totalAccidentCost) {
         this.reportId = reportId;
         this.month = month;
         this.totalFuelCost = totalFuelCost;
@@ -15,13 +16,13 @@ public class ExpenseReport {
         this.totalAccidentCost = totalAccidentCost;
     }
 
-    public void displayReport() {
-        System.out.println("\n======= Monthly Expense Report =======");
-        System.out.println("Report ID: " + reportId);
-        System.out.println("Month: " + month);
-        System.out.println("Total Fuel Cost: ₹" + totalFuelCost);
-        System.out.println("Total Maintenance Cost: ₹" + totalMaintenanceCost);
-        System.out.println("Total Accident Cost: ₹" + totalAccidentCost);
-        System.out.println("Grand Total: ₹" + (totalFuelCost + totalMaintenanceCost + totalAccidentCost));
+    // Getter methods
+    public String getReportId() { return reportId; }
+    public String getMonth() { return month; }
+    public double getTotalFuelCost() { return totalFuelCost; }
+    public double getTotalMaintenanceCost() { return totalMaintenanceCost; }
+    public double getTotalAccidentCost() { return totalAccidentCost; }
+    public double getGrandTotal() { 
+        return totalFuelCost + totalMaintenanceCost + totalAccidentCost; 
     }
 }
